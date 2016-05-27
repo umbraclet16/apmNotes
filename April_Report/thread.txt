@@ -1,0 +1,11 @@
+PID   PRI SCHD TYPE   NP STATE    NAME
+    0   0 FIFO TASK      READY    Idle Task()
+    1 192 FIFO KTHREAD   WAITSEM  hpwork()
+    2  50 FIFO KTHREAD   WAITSIG  lpwork()
+    3 100 FIFO TASK      RUNNING  init()
+   10 240 FIFO TASK      WAITSEM  px4io()
+   43 180 FIFO TASK      WAITSEM  ArduCopter()
+   44 181 FIFO PTHREAD   WAITSEM  <pthread>(20003b70)
+   45  60 FIFO PTHREAD   WAITSEM  <pthread>(20003b70)
+   46  58 FIFO PTHREAD   WAITSEM  <pthread>(20003b70)
+   48  59 FIFO PTHREAD   WAITSEM  <pthread>(20003b70)

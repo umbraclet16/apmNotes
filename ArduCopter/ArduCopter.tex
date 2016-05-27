@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt]{ctexart} %ctexart
+\usepackage[backref,hidelinks]{hyperref} %hidelinks去掉引用处的红框
+\pagestyle{plain} %把页码从右上角移到页脚
+%==========打印代码的设置===================
+\usepackage{color}
+\definecolor{gray}{rgb}{0.8,0.8,0.8}
+\usepackage{listings}
+\lstset{basicstyle=\small}
+\lstset{numbers=left} \lstset{language=C++} \lstset{breaklines}
+\lstset{extendedchars=false} \lstset{backgroundcolor=\color{gray}}
+\lstset{keywordstyle=\color{blue}\bfseries} \lstset{frame=none}
+\lstset{tabsize=4} \lstset{commentstyle=\color{red}}
+\lstset{stringstyle=\emph}
+%=======================================
+%缩小itemize行距
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%=======================================
+\begin{document}
+\begin{center}
+\textbf{ArduCopter.pde}
+\end{center}
+
+
+\begin{lstlisting}
+void setup() 
+{
+    cliSerial = hal.console;
+
+    // Load the default values of variables listed in var_info[]s
+    AP_Param::setup_sketch_defaults();
+
+    init_ardupilot();
+
+    // initialise the main loop scheduler 分配一块新空间_last_run用于存储任务列表，用memset()将其内容全设为零
+    scheduler.init(&scheduler_tasks[0], sizeof(scheduler_tasks)/sizeof(scheduler_tasks[0]));
+}
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
