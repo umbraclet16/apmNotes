@@ -196,8 +196,8 @@ const AP_HAL::HAL& hal = AP_HAL::get_HAL();
 从而只编译了PX4的一个子类AP\_HAL\_PX4，AP\_HAL::get\_HAL()的实现为：
 \begin{lstlisting}
 const AP_HAL::HAL& AP_HAL::get_HAL() {
-    static const HAL_Empty hal;
-    return hal;
+    static const HAL_PX4 hal_px4;
+    return hal_px4;
 }
 \end{lstlisting}
 而全局搜索宏CONFIG\_HAL\_BOARD，并没有找到其定义。
