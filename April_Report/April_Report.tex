@@ -160,26 +160,28 @@ LED灯变为红色，USB口被设置为NSH终端。
 \end{lstlisting}
 宏定义位于文件\textit{/libraries/AP\_HAL/AP\_HAL\_Main.h}中：
 \begin{lstlisting}
-#define AP_HAL_MAIN() extern "C" { \
-	int AP_MAIN(void); \
-	int AP_MAIN(void) { \
-		AP_HAL::HAL::FunCallbacks callbacks(setup, loop);\
-		hal.run(0, NULL, &callbacks); \
-		return 0; \
-	} \
-}
+#define AP_HAL_MAIN() \
+    AP_HAL::HAL::FunCallbacks callbacks(setup, loop); \
+    extern "C" {                               \
+    int AP_MAIN(int argc, char* const argv[]); \
+    int AP_MAIN(int argc, char* const argv[]) { \
+        hal.run(argc, argv, &callbacks); \
+        return 0; \
+    } \
+    }
 
 #define AP_HAL_MAIN_CALLBACKS(CALLBACKS) extern "C" { \
-	int AP_MAIN(void); \
-	int AP_MAIN(void) { \
-		hal.run(0, NULL, CALLBACKS); \
-		return 0; \
-	} \
-}
+    int AP_MAIN(int argc, char* const argv[]); \
+    int AP_MAIN(int argc, char* const argv[]) { \
+        hal.run(argc, argv, CALLBACKS); \
+        return 0; \
+    } \
+    }
+
 \end{lstlisting}
 即程序的真实起点为
 \begin{lstlisting}
-hal.run(0, NULL, &callbacks); 
+hal.run(argc, argv, CALLBACKS);
 \end{lstlisting}
 
 2.要运行run()函数，首先程序需要获得hal：
